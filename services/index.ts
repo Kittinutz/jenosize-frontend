@@ -23,3 +23,7 @@ export {
   updateCampaign,
   deleteCampaign,
 } from './campaign'
+export {
+  campaignService as dashboardService,
+  getAll7DaysState,
+} from './dashboard'

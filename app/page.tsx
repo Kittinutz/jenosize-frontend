@@ -58,6 +58,12 @@ export default async function Home() {
                 >
                   Create Campaign +
                 </Link>
+                <Link
+                  href="/dashboard"
+                  className="inline-flex items-center justify-center rounded-full border border-amber-300 bg-white/80 px-5 py-2.5 text-sm font-semibold text-amber-900 shadow-sm transition hover:-translate-y-0.5 hover:bg-white"
+                >
+                  View Dashboard +
+                </Link>
               </div>
             </div>
           </div>
@@ -105,6 +111,12 @@ export default async function Home() {
                 className="inline-flex items-center justify-center rounded-full border border-amber-300 bg-white/80 px-5 py-2.5 text-sm font-semibold text-amber-900 shadow-sm transition hover:-translate-y-0.5 hover:bg-white"
               >
                 Create Campaign +
+              </Link>
+              <Link
+                href="/dashboard"
+                className="inline-flex items-center justify-center rounded-full border border-amber-300 bg-white/80 px-5 py-2.5 text-sm font-semibold text-amber-900 shadow-sm transition hover:-translate-y-0.5 hover:bg-white"
+              >
+                View Dashboard +
               </Link>
             </div>
           </div>

@@ -12,6 +12,7 @@ import type {
   CreateCampaignInput,
   UpdateCampaignInput,
   MarketPlaceProduct,
+  PlatformEnum,
 } from '@/types'
 import { SearchProduct } from '@/types/product'
 
@@ -56,4 +57,28 @@ export interface CampaignProductResponse {
   campaignId: string
   productId: string
   product: Product
+}
+
+export interface DailyClickCountDto {
+  date: string
+  count: number
+}
+
+export interface ClickCountByProductDto extends DailyClickCountDto {
+  productTitle: string
+}
+
+export interface ClickCountByCampaignDto extends DailyClickCountDto {
+  campaignName: string
+}
+
+export interface ClickCountByMarketplaceDto extends DailyClickCountDto {
+  platform: PlatformEnum
+}
+
+export interface ClickStats7dResponse {
+  dates: string[] // Array of 7 dates in YYYY-MM-DD format
+  byProduct: ClickCountByProductDto[]
+  byCampaign: ClickCountByCampaignDto[]
+  byMarketplace: ClickCountByMarketplaceDto[]
 }
