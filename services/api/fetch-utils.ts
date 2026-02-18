@@ -18,7 +18,7 @@ export const apiFetch = async <T>(
   options: FetchOptions = {},
 ): Promise<T> => {
   const { timeout = 30000, ...fetchOptions } = options
-
+  console.log(`API Request: ${fetchOptions.method || 'GET'} ${path}`)
   const url = getApiUrl(path)
   const headers = {
     ...API_CONFIG.HEADERS,
@@ -45,6 +45,7 @@ export const apiFetch = async <T>(
     if (error instanceof Error && error.name === 'AbortError') {
       throw new Error(`Request timeout after ${timeout}ms`)
     }
+
     throw error
   } finally {
     clearTimeout(timeoutId)

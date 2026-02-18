@@ -2,7 +2,7 @@
 import { CampaignFormInput } from '@/types/campaign-form'
 import { useForm, SubmitHandler } from 'react-hook-form'
 import { useState } from 'react'
-import { createCampaign, ApiError } from '@/services'
+import { createCampaign, ApiError, CreateCampaignRequest } from '@/services'
 import ProductSelectionModal from './ProductSelectionModal'
 import { useRouter } from 'next/navigation'
 
@@ -42,7 +42,7 @@ export default function CampaignCreateForm({
       setIsSubmitting(true)
       setSubmitError(null)
 
-      const payload = {
+      const payload: CreateCampaignRequest = {
         name: data.name,
         UTMSource: data.UTMSource,
         UTMMedium: data.UTMMedium,

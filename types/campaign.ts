@@ -17,11 +17,11 @@ export interface Campaign {
 
 export interface CreateCampaignInput {
   name: string
-  startDate: Date
-  endDate: Date
+  startDate: Date | string
+  endDate: Date | string
   UTMSource: string
   UTMMedium: string
-  UTMCampaign: string
+  productIds: string[]
 }
 
 export interface UpdateCampaignInput {
