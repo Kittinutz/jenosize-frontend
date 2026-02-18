@@ -20,7 +20,8 @@ export default function ProductSelectionModal({
   const [products, setProducts] = useState<Product[]>([])
   const [loading, setLoading] = useState(true)
   const [searchTerm, setSearchTerm] = useState('')
-  const [localSelected, setLocalSelected] = useState<string[]>(selectedProductIds)
+  const [localSelected, setLocalSelected] =
+    useState<string[]>(selectedProductIds)
 
   useEffect(() => {
     setLocalSelected(selectedProductIds)

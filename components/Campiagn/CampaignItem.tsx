@@ -1,3 +1,4 @@
+'use client'
 import { Campaign } from '@/types'
 
 interface CampaignItemProps {
