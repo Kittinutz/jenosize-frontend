@@ -18,6 +18,9 @@ export type {
   UpdateCampaignInput,
 } from './campaign'
 
+// Campaign Form
+export type { CampaignFormInput } from './campaign-form'
+
 // CampaignsProducts
 export type {
   CampaignsProducts,

@@ -10,38 +10,73 @@ export default async function Home() {
   ])
 
   return (
-    <div className="container mx-auto p-4">
-      <h1 className="text-3xl font-bold mb-4">Campaign List</h1>
-      <div className="row">
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-x-4">
-          {campaigns.map((campaign) => (
+    <div>
+      <div className="container mx-auto px-4 py-8">
+        <div className="mb-8 rounded-2xl border border-amber-200/60 bg-white/80 p-6 shadow-sm backdrop-blur">
+          <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+            <div>
+              <p className="text-xs uppercase tracking-[0.2em] text-amber-700/70">
+                Marketplace Hub
+              </p>
+              <h1 className="text-3xl md:text-4xl font-semibold text-gray-900">
+                Campaigns and Products
+              </h1>
+              <p className="mt-2 text-sm text-gray-600">
+                Track campaigns, compare marketplace listings, and create
+                products faster.
+              </p>
+            </div>
             <Link
-              key={campaign.id}
-              href={`/campaign/${campaign.id}`}
+              href="/product/create"
+              className="inline-flex items-center justify-center rounded-full bg-amber-600 px-4 py-2 text-sm font-semibold text-white shadow-md shadow-amber-200 transition hover:bg-amber-700"
             >
-              <CampaignItem campaign={campaign} />
+              Create Product +
             </Link>
-          ))}
+          </div>
         </div>
-      </div>
-      <div className="row">
-        <div className="grid grid-cols-2">
-          <h1 className="text-3xl font-bold mb-4">Campain List</h1>
-          <Link
-            className="text-right"
-            href="/product/create"
-          >
-            <p>Create Product +</p>
-          </Link>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-x-4">
-          {products.map((product) => (
-            <ProductItems
-              key={product.id}
-              product={product}
-            />
-          ))}
-        </div>
+
+        <section className="mb-10">
+          <div className="mb-4 flex items-center justify-between">
+            <h2 className="text-xl md:text-2xl font-semibold text-gray-900">
+              Campaign List
+            </h2>
+            <span className="rounded-full bg-amber-100 px-3 py-1 text-xs font-medium text-amber-800">
+              {campaigns.length} campaigns
+            </span>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {campaigns.map((campaign) => (
+              <Link
+                key={campaign.id}
+                href={`/campaign/${campaign.id}`}
+                className="group"
+              >
+                <CampaignItem campaign={campaign} />
+              </Link>
+            ))}
+          </div>
+        </section>
+
+        <section>
+          <div className="mb-4 flex items-center justify-between">
+            <h2 className="text-xl md:text-2xl font-semibold text-gray-900">
+              Product List
+            </h2>
+            <span className="rounded-full bg-rose-100 px-3 py-1 text-xs font-medium text-rose-800">
+              {products.length} products
+            </span>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {products.map((product) => (
+              <div
+                key={product.id}
+                className="rounded-xl border border-gray-200 bg-white p-3 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+              >
+                <ProductItems product={product} />
+              </div>
+            ))}
+          </div>
+        </section>
       </div>
     </div>
   )

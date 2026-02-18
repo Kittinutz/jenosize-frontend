@@ -1,6 +1,4 @@
 'use client'
-
-import React, from 'react'
 import Button from '../Actions/Button'
 import { SearchProduct } from '@/types/product'
 import Image from 'next/image'
@@ -8,10 +6,10 @@ import Image from 'next/image'
 interface MarketPlaceSearchCardProps {
   // You can add props here if needed in the future
   product: SearchProduct
-  handleSelectProduct: (product: SearchProduct) =>()=> void
+  handleSelectProduct: (product: SearchProduct) => () => void
   platform: string
 }
-export default function MarketPlaceSearchCard({
+export default function MarketPlaceSearchItemCard({
   product,
   handleSelectProduct,
   platform,

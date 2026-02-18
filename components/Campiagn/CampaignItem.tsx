@@ -5,20 +5,10 @@ interface CampaignItemProps {
 }
 
 export default function CampaignItem({ campaign }: CampaignItemProps) {
-  const getProductsFromCampaign = (campaign: Campaign) => {
-    const campaignsProducts = campaign.campaignsProducts || []
-    return campaignsProducts.map((cp) => cp.product)
-  }
-  const getProductsMarkeplaces = (campaign: Campaign) => {
-    const campaignsProducts = campaign.campaignsProducts || []
-    return campaignsProducts
-      .flatMap((cp) => cp.product)
-      .flatMap((product) => product.marketPlaceProducts)
-  }
   return (
     <div
       key={campaign.id}
-      className="border rounded p-4 mb-4 shadow-sm hover:shadow-md transition-shadow"
+      className="rounded-xl border border-gray-200 bg-white p-3 shadow-sm transition group-hover:-translate-y-0.5 group-hover:shadow-md"
     >
       <h2 className="text-xl font-semibold mb-2">{campaign.name}</h2>
       <p className="text-gray-600 mb-1">
@@ -27,8 +17,6 @@ export default function CampaignItem({ campaign }: CampaignItemProps) {
       <p className="text-gray-600 mb-1">
         End Date: {new Date(campaign.endDate).toLocaleDateString()}
       </p>
-      <p>Number of Products {getProductsFromCampaign(campaign).length}</p>
-      <p>Number of Marketplaces {getProductsMarkeplaces(campaign).length}</p>
     </div>
   )
 }

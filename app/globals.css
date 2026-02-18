@@ -3,6 +3,8 @@
 :root {
   --background: #ffffff;
   --foreground: #000000;
+  --lazada: #f57224;
+  --shopee: #ee4d2d;
 }
 
 @theme inline {

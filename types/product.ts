@@ -1,6 +1,7 @@
 import { url } from 'inspector'
 import { CampaignsProducts } from './campaigns-products'
 import { MarketPlaceProduct } from './marketplace-product'
+import { PlatformEnum } from './enums'
 
 export interface Product {
   id: string
@@ -12,11 +13,18 @@ export interface Product {
   campaignsProducts?: CampaignsProducts[]
   marketPlaceProducts?: MarketPlaceProduct[]
 }
-
+type MarketPlaceProductCreate = {
+  title: string
+  price: string
+  image_url: string
+  url: string
+  platform: PlatformEnum
+}
 export interface CreateProductInput {
   title: string
-  image_url: string
-  price: number
+  imageUrl: string
+  price: number | string
+  marketPlaceProducts?: MarketPlaceProductCreate[]
 }
 
 export interface UpdateProductInput {
