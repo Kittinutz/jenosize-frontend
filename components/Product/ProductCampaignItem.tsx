@@ -10,9 +10,8 @@ export default async function ProductCampaignItem({
   campaignId: string
 }) {
   const product = await getProductByIdIncludeCampaign(productId, campaignId)
-  const backendUrl = `${process.env.BACKEND_URL}/go`
+  const backendUrl = `${process.env.NEXT_PUBLIC_BACKEND_URL}/go`
   const primaryImage = product.marketPlaceProducts?.[0]?.image_url
-  const platform = product.marketPlaceProducts?.[0]?.platform.toLowerCase()
   return (
     <div
       key={product.id}
