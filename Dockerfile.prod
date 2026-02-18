@@ -1,5 +1,6 @@
 # Build stage
-FROM --platform=linux/arm64 node:20-alpine AS builder
+ARG TARGETPLATFORM
+FROM --platform=$TARGETPLATFORM node:20-alpine AS builder
 
 WORKDIR /app
 
@@ -24,8 +25,8 @@ WORKDIR /app
 RUN apk add --no-cache dumb-init
 
 # Create non-root user
-RUN addgroup -g 1001 -S nodejs
-RUN adduser -S nextjs -u 1001
+RUN addgroup -g 1001 -S nodejs \
+	&& adduser -S nextjs -u 1001 -G nodejs
 
 # Copy built application from builder
 COPY --from=builder --chown=nextjs:nodejs /app/.next ./.next
@@ -38,7 +39,7 @@ USER nextjs
 
 EXPOSE 3000
 
-ENV NODE_ENV production
+ENV NODE_ENV=production
 
 # Use dumb-init to handle signals properly
 ENTRYPOINT ["dumb-init", "--"]
