@@ -23,9 +23,7 @@ export default function MarketPlaceSearch({
   const handleSearch = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value
     setSearchTerm(value)
-    console.log({
-      platform,
-    })
+
     if (!value.includes(platform.toLocaleLowerCase())) {
       setError('Please enter a marketplace URL')
       return

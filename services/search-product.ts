@@ -3,9 +3,9 @@
  * Handles all product-related API calls
  */
 
-import { apiGet, ProductResponse, SearchProductResponse } from './api'
+import { apiGet, SearchProductResponse } from './api'
 
-const PRODUCT_ENDPOINTS = {
+const SEARCH_PRODUCT = {
   BASE: '/search-product',
 } as const
 
@@ -16,7 +16,7 @@ export const getProductSearch = async (
   url: string,
 ): Promise<SearchProductResponse> => {
   return apiGet<SearchProductResponse>(
-    PRODUCT_ENDPOINTS.BASE + `?url=${encodeURIComponent(url)}`,
+    SEARCH_PRODUCT.BASE + `?url=${encodeURIComponent(url)}`,
   )
 }
 
