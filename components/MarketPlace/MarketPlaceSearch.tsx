@@ -4,9 +4,7 @@ import { getProductSearch } from '@/services/search-product'
 import React, { useState } from 'react'
 import Button from '../Actions/Button'
 import { SearchProduct } from '@/types/product'
-import { styleText } from 'util'
 import { PlatformEnum } from '@/types'
-import { platform } from 'os'
 
 interface MarketPlaceSearchProps {
   // You can add props here if needed in the future
