@@ -12,6 +12,7 @@ export default async function ProductCampaignItem({
   const product = await getProductByIdIncludeCampaign(productId, campaignId)
   const backendUrl = `${process.env.NEXT_PUBLIC_API_URL}/go`
   const primaryImage = product.marketPlaceProducts?.[0]?.image_url
+  const platform = product.marketPlaceProducts?.[0]?.platform.toLowerCase()
   return (
     <div
       key={product.id}
@@ -55,26 +56,29 @@ export default async function ProductCampaignItem({
           </span>
         </div>
         <div className="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-3">
-          {product.marketPlaceProducts?.map((mp) => (
-            <Link
-              key={mp.id}
-              href={`${backendUrl}/${mp.links?.[0]?.urlId}`}
-              target="_blank"
-            >
-              <div
-                className={`rounded-md border border-gray-200 bg-[var(--${mp.platform.toLowerCase()})] p-3`}
+          {product.marketPlaceProducts?.map((mp) => {
+            const platform = mp.platform.toLowerCase()
+            return (
+              <Link
+                key={mp.id}
+                href={`${backendUrl}/${mp.links?.[0]?.urlId}`}
+                target="_blank"
               >
-                <div className="flex items-center justify-between">
-                  <span className="text-xs font-semibold text-white">
-                    {mp.platform}
-                  </span>
-                  <span className="text-sm font-semibold text-white">
-                    ฿{mp.price.toLocaleString()}
-                  </span>
+                <div
+                  className={`rounded-md border border-gray-200 bg-${platform} p-3`}
+                >
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-semibold text-white">
+                      {mp.platform}
+                    </span>
+                    <span className="text-sm font-semibold text-white">
+                      ฿{mp.price.toLocaleString()}
+                    </span>
+                  </div>
                 </div>
-              </div>
-            </Link>
-          ))}
+              </Link>
+            )
+          })}
         </div>
       </div>
     </div>

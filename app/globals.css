@@ -13,6 +13,15 @@
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
+
+@layer utilities {
+  .bg-lazada {
+    background-color: var(--lazada);
+  }
+  .bg-shopee {
+    background-color: var(--shopee);
+  }
+}
 @media (prefers-color-scheme: light) {
   :root {
     --background: #ffffff;
@@ -24,6 +33,8 @@
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    --lazada: #f57224;
+    --shopee: #ee4d2d;
   }
 } */
 

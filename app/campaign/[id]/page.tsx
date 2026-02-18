@@ -1,7 +1,6 @@
 import ProductCampaignItem from '@/components/Product/ProductCampaignItem'
 import CampaignDetailsHeader from '@/components/Campaign/CampaignDetailsHeader'
-import { getCampaignById, Product } from '@/services'
-
+import { getCampaignById } from '@/services'
 export default async function Campaign({ params }: { params: { id: string } }) {
   const { id } = await params
   const campaign = await getCampaignById(id)

@@ -50,7 +50,7 @@ export default async function ProductItems({ product }: { product: Product }) {
               target="_blank"
             >
               <div
-                className={`rounded-md border border-gray-200 bg-[var(--${mp.platform.toLowerCase()})] p-3`}
+                className={`rounded-md border border-gray-200 bg-${mp.platform.toLowerCase()} p-3`}
               >
                 <div className="flex items-center justify-between gap-2">
                   <span className={`text-xs font-semibold text-white `}>
