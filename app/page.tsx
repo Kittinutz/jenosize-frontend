@@ -12,9 +12,11 @@ export default async function Home() {
       getAllCampaigns(),
       getAllProducts(),
     ])
-    campaigns = campaignsData
-    products = productsData
-  } catch (e) {}
+    campaigns = [...campaignsData]
+    products = [...productsData]
+  } catch (e) {
+    console.error('Failed to fetch campaigns or products:', e)
+  }
 
   if (!campaigns || !products) {
     return (
