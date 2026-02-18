@@ -15,7 +15,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
+      - name: Set ENV
+        run: echo ${{secrets.PROD}} >> .env
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
