@@ -16,10 +16,10 @@ export const getProductSearch = async (
   url: string,
 ): Promise<SearchProductResponse> => {
   return apiGet<SearchProductResponse>(
-    SEARCH_PRODUCT.BASE + `?url=${encodeURIComponent(url)}`,
+    `${SEARCH_PRODUCT.BASE}?url=${encodeURIComponent(url)}`,
   )
 }
 
-export const productService = {
+export const searchProductService = {
   getProductSearch,
 }

@@ -1,10 +1,10 @@
 'use client'
 
-import { getProductSearch } from '@/services/search-product'
 import React, { useState } from 'react'
 import Button from '../Actions/Button'
 import { SearchProduct } from '@/types/product'
 import { PlatformEnum } from '@/types'
+import { getProductSearch } from '@/services'
 
 interface MarketPlaceSearchProps {
   // You can add props here if needed in the future
